@@ -1,6 +1,8 @@
 <h1><b>چگونه به وحشیانه ترین حالت یه استریگ رو نمایش بدیم</b></h1>
+<h3><b>به عبارتی دیگر: چگونه مثل سیشارپ، پایتون کد بزنیم</b></h3>
 <div align='left'>
-<h3><b>How to Display String in Wildest Way<h3>
+<h4><b>How to Display String in Wildest Way</b><h4>
+<h4>Other Meaning: How to code <b>Python</b> Like <b>(C#)</b><h4>
 <h6>Python 3.11.0<h6>
 
 <h5><h5>
