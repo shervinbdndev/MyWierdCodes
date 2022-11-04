@@ -1,7 +1,7 @@
 <h1><b>چگونه به وحشیانه ترین حالت یه استریگ رو نمایش بدیم</b></h1>
 <div align='left'>
-<h3></b>How to Display String in Wildest Way</b><h3>
-<h3></b>Python 3.11.0</b><h3>
+<h3><b>How to Display String in Wildest Way<h3>
+<h3><b>Python 3.11.0</b><h3>
 <br>
 
 ```py
