@@ -81,12 +81,12 @@ def main() -> Literal[None]:
 
 
 
-class DNA:
+class _DNA:
     _meta_data: Dict[str,str] = {}
 
 
 
-class Human(DNA):
+class Human(_DNA):
     def __init__(self: Self, *, name: str, family: str, age: int, code: int) -> Union[Literal[None], Self]:
         super(Human, self).__init__()
         self.__name = self._meta_data['name'] = name
