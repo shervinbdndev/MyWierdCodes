@@ -70,12 +70,13 @@ def main() -> Literal[None]:
     h1: Human = Human(name='shervin' , family='badanara' , age=19 , code=5180195225)
     
     # Printing Properities & Behavior Of the above Instance               نمایش خصوصیت ها و رفتارهای نمونه بالا
-    print(h1)
-    print(h1.name)
-    print(h1.family)
-    print(h1.age)
-    print(h1.code)
-    print(h1.UserData())
+    
+    print(h1)                    # Output ---> Human
+    print(h1.name)               # Output ---> shervin
+    print(h1.family)             # Output ---> badanara
+    print(h1.age)                # Output ---> 19
+    print(h1.code)               # Output ---> 5180195225
+    print(h1.UserData())         # Output ---> {'name': 'shervin', 'family': 'badanara', 'age': 19, 'code': 5180195225}
 
 
 
@@ -94,22 +95,22 @@ class Human(DNA):
         self.__code = self._meta_data['code'] = code
         
     def __str__(self: Self) -> str:
-        return f'{self.name} {self.family}'
+        return __class__.__name__
         
     @property
-    def name(self: Self):
+    def name(self: Self) -> str:
         return self.__name
     
     @property
-    def family(self: Self):
+    def family(self: Self) -> str:
         return self.__family
     
     @property
-    def age(self: Self):
+    def age(self: Self) -> int:
         return self.__age
     
     @property
-    def code(self: Self):
+    def code(self: Self) -> int:
         return self.__code
     
     def UserData(self: Self) -> Any:
