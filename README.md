@@ -9,6 +9,7 @@
 <br>
 
 ```py
+
 import sys
 from overrides.overrides import override
 from typing import (Literal , Union , Self)
@@ -34,6 +35,7 @@ class PrintOutput(Print):
 if (__name__ == '__main__'):
     my_var = PrintOutput(not __debug__)
     print(my_var)
+
 ```
 
 </div>
@@ -50,6 +52,7 @@ if (__name__ == '__main__'):
 <br>
 
 ```py
+
 from typing import (
     Literal ,
     Union ,
@@ -119,6 +122,8 @@ class Human(_DNA):
 
 if (__name__ == '__main__'):
     main()
+
+
 ```
 
 </div>
@@ -134,6 +139,7 @@ if (__name__ == '__main__'):
 <br>
 
 ```py
+
 try:
     import \
         subprocess,\
@@ -170,6 +176,7 @@ except* ModuleNotFoundError as mnfe:
 
 finally:
     sys.stdout.write(':)')
+
 ```
 
 </div>
@@ -185,6 +192,7 @@ finally:
 <br>
 
 ```py
+
 try:
     import \
         os,\
@@ -217,6 +225,7 @@ except* ModuleNotFoundError as mnfe:
 
 finally:
     sys.stdout.write(':)')
+
 ```
 
 
@@ -243,6 +252,7 @@ finally:
 <br>
 
 ```py
+
 from typing import (List, Literal, Self, Union)
 
 
@@ -285,5 +295,8 @@ if (__name__ == '__main__'):
     std2.saveData()
     
     print(Utils.calculate(std1.avg, std2.avg))
+
 ```
+
+
 </div>
