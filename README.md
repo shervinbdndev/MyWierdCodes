@@ -286,6 +286,4 @@ if (__name__ == '__main__'):
     
     print(Utils.calculate(std1.avg, std2.avg))
 ```
-
-
 </div>
