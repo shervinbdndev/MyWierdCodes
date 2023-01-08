@@ -234,14 +234,18 @@ finally:
 <h1><b>برنامه ای بنویسید که نام دانشجو، نمره درس اول، نمره درس دوم را گرفته، سپس نمایش دهد و بالاترین معدل بین دانشجویان نمایش داده شود و در نهایت اطلاعات ذخیره شوند</b></h1>
 <h3><b>امتحان میان ترم دانشگاه(ترم 3)</b></h3>
 <div align='left'>
-<h4><b>Create a Porgram that does the below Options:</b><br>
-<li> get the student name<li>
-<li> get the student first lesson score<li>
-<li> get the student second lesson score<li>
-<li> show the name and average score of the student<li>
-<li> show the highest average between students <li>
-<li> save all the data <h4><li>
-<h4><b>University midterm exam (semester 3)</b><h4>
+<details>
+  <summary><b>University midterm exam (semester 3)</b></summary>
+  
+  ## Create a Porgram that does the below Options:
+  1. get the student name
+  2. get the student first lesson score
+  3. get the student second lesson score
+  4. show the name and average score of the student
+  5. show the highest average between students 
+  6. save all the data
+</details>
+
 <h6>Python 3.11.0<h6>
 
 <h4><h4>
