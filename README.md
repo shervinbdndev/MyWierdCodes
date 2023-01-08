@@ -251,7 +251,7 @@ finally:
 <h4><h4>
 <br>
 
-```py
+```python
 
 from typing import (List, Literal, Self, Union)
 
