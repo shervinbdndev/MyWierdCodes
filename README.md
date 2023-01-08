@@ -230,3 +230,69 @@ finally:
 
 
 </div>
+
+<h1><b>برنامه ای بنویسید که نام دانشجو، نمره درس اول، نمره درس دوم را گرفته، سپس نمایش دهد و بالاترین معدل بین دانشجویان نمایش داده شود و در نهایت اطلاعات ذخیره شوند</b></h1>
+<h3><b>امتحان میان ترم دانشگاه(ترم 3)</b></h3>
+<div align='left'>
+<h4><b>Create a Porgram that does the below Options:</b><br>
+<li> get the student name<li>
+<li> get the student first lesson score<li>
+<li> get the student second lesson score<li>
+<li> show the name and average score of the student<li>
+<li> show the highest average between students <li>
+<li> save all the data <h4><li>
+<h4><b>University midterm exam (semester 3)</b><h4>
+<h6>Python 3.11.0<h6>
+
+<h4><h4>
+<br>
+
+```py
+
+from typing import (List, Literal, Self, Union)
+
+
+class Student:
+    def __init__(self: Self, fname: str, less1: Union[int, float], less2: Union[int, float]) -> Literal[None]:
+        self.fname = fname
+        self.less1 = less1
+        self.less2 = less2
+        self.avg = (self.less1 + self.less2) / 2
+        
+    def info(self) -> str:
+        return f'{self.fname} {self.avg}'
+    
+    def saveData(self) -> Literal[None]:
+        with open(file='data.txt', mode='a', encoding='UTF-8') as DATA:
+            DATA.write(f'{self.fname} {self.avg}\n')
+    
+    
+
+class Utils:
+    
+    @staticmethod
+    def calculate(*args: Union[int, float]) -> tuple:
+        avgList: List[int] = []
+        avgList.append(args)
+        return max(avgList)[0]
+    
+    
+
+
+
+if (__name__ == '__main__'):
+    std1: Student = Student(fname='ava', less1=20, less2=20)
+    std2: Student = Student(fname='shervin', less1=19, less2=19.5)
+    
+    print(std1.info())
+    print(std2.info())
+    
+    std1.saveData()
+    std2.saveData()
+    
+    print(Utils.calculate(std1.avg, std2.avg))
+
+```
+
+
+</div>
