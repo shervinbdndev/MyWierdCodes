@@ -36,13 +36,11 @@ if (__name__ == '__main__'):
     print(my_var)
 ```
 
-</div>
 <br>
 
 
 <h1><b>پروژه ساخت کلاس انسان</b></h1>
 <h3><b>یه پروژه ساده و راحت جهت نشون دادن شئ گرایی تو پایتون</b></h3>
-<div align='left'>
 <h4><b>A Simple Project to Show OOP(Object Oriented Programming) in Python</b><h4>
 <h6>Python 3.11.0<h6>
 
@@ -120,8 +118,6 @@ class Human(_DNA):
 if (__name__ == '__main__'):
     main()
 ```
-
-</div>
 
 <h1><b>چجوری لینوکس رو بپوکونیم</b></h1>
 <h3><b>از لینوکس خسته شدی؟ این اکسپلویت رو اجرا کن</b></h3>
