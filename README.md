@@ -312,7 +312,7 @@ import threading, requests, bs4, time, traceback, io, os
 
 def main() -> None:
     btc: LiveCurrencyStatus = LiveCurrencyStatus(currency_name='bitcoin')
-    btc.start_thread_and_save()
+    btc.streamwrite_to_file()
 
 
 
@@ -362,7 +362,7 @@ class LiveCurrencyStatus():
         
         print(f'{Fore.WHITE}Currency Growth Level: {Fore.GREEN}{scraped_growth.get_text()}   {Fore.WHITE}Current Bitcoin Price: {Fore.GREEN}{self.scraped_price.get_text()}{Fore.WHITE}', end='\r', flush=True)
         
-    def start_thread_and_save(self) -> NoReturn:
+    def streamwrite_to_file(self) -> NoReturn:
         while (True):
             time.sleep(2.5)
             thread_btc: threading.Thread = threading.Thread(target=self.get_price())
