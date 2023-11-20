@@ -289,10 +289,10 @@ if (__name__ == '__main__'):
 
 </div>
 
-<h1><b>چجوری قیمت بیتکوین رو با استفاده از وب اسکرپینگ تو پایتون، بصورت لایو بگیریم</b></h1>
+<h1><b>چجوری قیمت بیتکوین رو با استفاده از وب اسکرپینگ تو پایتون، بصورت لایو بگیریم و بصورت استریم تو یه فایل متنی ذخیرش کنیم</b></h1>
 <h3><b>Web Scraping</b></h3>
 <div align='left'>
-<h4><b>How to Get Live Bitcoin Price in Python using Web Scraping</b><h4>
+<h4><b>How to Get Live Bitcoin Price in Python using Web Scraping And save it While Streaming Data to a Text file</b><h4>
 <h6>Python 3.12.0<h6>
 
 <h4><h4>
@@ -300,8 +300,8 @@ if (__name__ == '__main__'):
 
 ```python
 from colorama.ansi import Fore
-from typing import Union, Literal
-import threading, requests, bs4, time, traceback
+from typing import Union, Literal, NoReturn
+import threading, requests, bs4, time, traceback, io, os
 
 
 
@@ -312,12 +312,7 @@ import threading, requests, bs4, time, traceback
 
 def main() -> None:
     btc: LiveCurrencyStatus = LiveCurrencyStatus(currency_name='bitcoin')
-    
-    while (True):
-        time.sleep(2.5)
-        thread_btc: threading.Thread = threading.Thread(target=btc.get_price())
-        thread_btc.daemon = True
-        thread_btc.start()
+    btc.start_thread_and_save()
 
 
 
@@ -328,6 +323,7 @@ class LiveCurrencyStatus():
     def __init__(self, currency_name: str) -> Union[Literal[None], None]:
         self.__currency_name = currency_name
         self.__base_url = 'https://coinmarketcap.com/currencies/'
+        self.scraped_price = None
         
     @property
     def currency_name(self) -> str:
@@ -351,7 +347,7 @@ class LiveCurrencyStatus():
                 },
             )
             
-            scraped_price = bs4.BeautifulSoup(
+            self.scraped_price = bs4.BeautifulSoup(
                 markup=request.text,
                 features='html5lib',
             ).find(
@@ -364,7 +360,17 @@ class LiveCurrencyStatus():
         except requests.exceptions.ConnectionError as CE:
             print(f'{traceback.format_exc()} >> {CE}')
         
-        print(f'{Fore.WHITE}Currency Growth Level: {Fore.GREEN}{scraped_growth.get_text()}   {Fore.WHITE}Current Bitcoin Price: {Fore.GREEN}{scraped_price.get_text()}{Fore.WHITE}', end='\r', flush=True)
+        print(f'{Fore.WHITE}Currency Growth Level: {Fore.GREEN}{scraped_growth.get_text()}   {Fore.WHITE}Current Bitcoin Price: {Fore.GREEN}{self.scraped_price.get_text()}{Fore.WHITE}', end='\r', flush=True)
+        
+    def start_thread_and_save(self) -> NoReturn:
+        while (True):
+            time.sleep(2.5)
+            thread_btc: threading.Thread = threading.Thread(target=self.get_price())
+            thread_btc.daemon = True
+            thread_btc.start()
+            
+            with io.open(file=os.path.normpath(f'{os.getcwd()}/prices.txt'), mode='a', encoding='utf-8') as ST:
+                ST.writelines(f'{self.scraped_price.get_text()}\n')
         
         
         
