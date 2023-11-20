@@ -43,7 +43,6 @@ if (__name__ == '__main__'):
 <h4><b>A Simple Project to Show OOP(Object Oriented Programming) in Python</b><h4>
 <h6>Python 3.11.0<h6>
 
-<h4><h4>
 <br>
     
 ```python
@@ -125,7 +124,6 @@ if (__name__ == '__main__'):
 <h4><b>Tired of Linux? Run this Exploit</b><h4>
 <h6>Python 3.11.0<h6>
 
-<h4><h4>
 <br>
     
 ```python
@@ -176,7 +174,6 @@ finally:
 <h4><b>CPU Murderer</b><h4>
 <h6>Python 3.11.0<h6>
 
-<h4><h4>
 <br>
     
 ```python
@@ -233,7 +230,6 @@ finally:
 
 <h6>Python 3.11.0<h6>
 
-<h4><h4>
 <br>
 
 ```python
@@ -290,7 +286,6 @@ if (__name__ == '__main__'):
 <h4><b>How to Get Live Bitcoin Price in Python using Web Scraping</b><h4>
 <h6>Python 3.12.0<h6>
 
-<h4><h4>
 <br>
 
 ```python
@@ -367,5 +362,3 @@ class LiveCurrencyStatus():
 if (__name__ == '__main__'):
     main()
 ```
-
-</div>
