@@ -7,9 +7,7 @@
 
 <h4><h4>
 <br>
-    
 ```python
-
 import sys
 from overrides.overrides import override
 from typing import (Literal , Union , Self)
@@ -35,7 +33,6 @@ class PrintOutput(Print):
 if (__name__ == '__main__'):
     my_var = PrintOutput(not __debug__)
     print(my_var)
-
 ```
 
 </div>
