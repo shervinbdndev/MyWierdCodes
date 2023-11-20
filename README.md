@@ -298,3 +298,95 @@ if (__name__ == '__main__'):
 
 
 </div>
+
+<h1><b>چجوری قیمت بیتکوین رو با استفاده از وب اسکرپینگ تو پایتون، بصورت لایو بگیریم</b></h1>
+<h3><b>Web Scraping</b></h3>
+<div align='left'>
+<h4><b>How to Get Live Bitcoin Price in Python using Web Scraping</b><h4>
+<h6>Python 3.12.0<h6>
+
+<h4><h4>
+<br>
+
+```python
+
+
+from colorama.ansi import Fore
+from typing import Union, Literal
+import threading, requests, bs4, time, traceback
+
+
+
+
+
+
+
+
+def main() -> None:
+    btc: LiveCurrencyStatus = LiveCurrencyStatus(currency_name='bitcoin')
+    
+    while (True):
+        time.sleep(2.5)
+        thread_btc: threading.Thread = threading.Thread(target=btc.get_price())
+        thread_btc.daemon = True
+        thread_btc.start()
+
+
+
+
+
+
+class LiveCurrencyStatus():
+    def __init__(self, currency_name: str) -> Union[Literal[None], None]:
+        self.__currency_name = currency_name
+        self.__base_url = 'https://coinmarketcap.com/currencies/'
+        
+    @property
+    def currency_name(self) -> str:
+        return self.__currency_name
+    
+    @property
+    def base_url(self) -> str:
+        return self.__base_url
+    
+    def get_price(self) -> None:
+        try:
+            request: requests.Response = requests.get(url=f'{self.base_url}{self.currency_name}')
+
+            scraped_growth = bs4.BeautifulSoup(
+                markup=request.text,
+                features='html5lib',
+            ).find(
+                name='p',
+                attrs={
+                    'class': 'sc-4984dd93-0 sc-83eb68a9-1 dvnslc',
+                },
+            )
+            
+            scraped_price = bs4.BeautifulSoup(
+                markup=request.text,
+                features='html5lib',
+            ).find(
+                name='span',
+                attrs={
+                    'class': 'sc-f70bb44c-0 jxpCgO base-text',
+                }
+            )
+        
+        except requests.exceptions.ConnectionError as CE:
+            print(f'{traceback.format_exc()} >> {CE}')
+        
+        print(f'{Fore.WHITE}Currency Growth Level: {Fore.GREEN}{scraped_growth.get_text()}   {Fore.WHITE}Current Bitcoin Price: {Fore.GREEN}{scraped_price.get_text()}{Fore.WHITE}', end='\r', flush=True)
+        
+        
+        
+
+if (__name__ == '__main__'):
+    main()
+
+
+```
+
+
+
+</div>
