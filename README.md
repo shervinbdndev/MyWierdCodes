@@ -50,7 +50,6 @@ if (__name__ == '__main__'):
 <br>
     
 ```python
-
 from typing import (
     Literal ,
     Union ,
@@ -120,8 +119,6 @@ class Human(_DNA):
 
 if (__name__ == '__main__'):
     main()
-
-
 ```
 
 </div>
@@ -137,7 +134,6 @@ if (__name__ == '__main__'):
 <br>
     
 ```python
-
 try:
     import \
         subprocess,\
@@ -174,7 +170,6 @@ except* ModuleNotFoundError as mnfe:
 
 finally:
     sys.stdout.write(':)')
-
 ```
 
 </div>
@@ -190,7 +185,6 @@ finally:
 <br>
     
 ```python
-
 try:
     import \
         os,\
@@ -223,9 +217,7 @@ except* ModuleNotFoundError as mnfe:
 
 finally:
     sys.stdout.write(':)')
-
 ```
-
 
 </div>
 
@@ -250,7 +242,6 @@ finally:
 <br>
 
 ```python
-
 from typing import (List, Literal, Self, Union)
 
 
@@ -293,7 +284,6 @@ if (__name__ == '__main__'):
     std2.saveData()
     
     print(Utils.calculate(std1.avg, std2.avg))
-
 ```
 
 
@@ -309,8 +299,6 @@ if (__name__ == '__main__'):
 <br>
 
 ```python
-
-
 from colorama.ansi import Fore
 from typing import Union, Literal
 import threading, requests, bs4, time, traceback
@@ -383,10 +371,6 @@ class LiveCurrencyStatus():
 
 if (__name__ == '__main__'):
     main()
-
-
 ```
-
-
 
 </div>
