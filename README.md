@@ -265,7 +265,7 @@ class Utils:
     
     @staticmethod
     def calculate(*args: Union[int, float]) -> tuple:
-        avgList: List[int] = []
+        avgList: List[float] = []
         avgList.append(args)
         return max(avgList)[0]
     
