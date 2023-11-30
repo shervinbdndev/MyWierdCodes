@@ -287,3 +287,57 @@ if (__name__ == '__main__'):
 ```
 
 </div>
+
+
+<h1><b>چجوری بایت های یک عکس رو بصورت استریم ناهماهنگ بخونیم و یه کپی از عکس بگیریم</b></h1>
+<div align='left'>
+<h4><b>How to Read Bytes of a Picture using Asynchronous Stream and Get a Copy from it.</b><h4>
+<h4><b>Asynchronous Stream</b><h4>
+<h6>Python 3.12.0<h6>
+
+<h4><h4>
+<br>
+    
+```python
+import os, aiofiles, asyncio
+
+
+
+
+def main() -> None:
+    copy1: CopyImageStreamWriter = CopyImageStreamWriter(image_name='wallpaper', format='jpg')
+    asyncio.run(main=copy1.copy())
+
+
+
+
+
+class CopyImageStreamWriter:
+    def __init__(self, image_name: str, format: str) -> None:
+        self.__image_name = image_name
+        self.__format = format
+        
+    @property
+    def image_name(self) -> str:
+        return self.__image_name
+    
+    @property
+    def format(self) -> str:
+        return self.__format
+    
+    async def copy(self) -> None:
+        async with aiofiles.open(file=f'{os.getcwd()}/{self.image_name}.{self.format}', mode='rb') as RB:
+            async with aiofiles.open(file=f'{os.getcwd()}/{self.image_name}_copy.{self.format}', mode='wb') as WB:
+                CHUNK_SIZE = 4096
+                read_from_chunk: bytes = await RB.read(CHUNK_SIZE)
+                while (len(read_from_chunk) > 0):
+                    await WB.write(read_from_chunk)
+                    read_from_chunk = await RB.read(CHUNK_SIZE)
+                    
+                    
+
+if (__name__ == '__main__'):
+    main()
+```
+
+</div>
