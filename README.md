@@ -308,7 +308,7 @@ import os, aiofiles, asyncio
 
 
 
-def main() -> None:
+def main[T: None]() -> T:
     copy1: CopyImageStreamWriter = CopyImageStreamWriter(image_name='wallpaper', format='jpg')
     asyncio.run(main=copy1.copy())
 
@@ -317,26 +317,30 @@ def main() -> None:
 
 
 class CopyImageStreamWriter:
-    def __init__(self, image_name: str, format: str) -> None:
+    def __init__[T: str,  N: None](self, image_name: T, format: T) -> N:
         self.__image_name = image_name
         self.__format = format
+        self.__CHUNKSIZE: int = 4096
         
     @property
-    def image_name(self) -> str:
+    def image_name[T: str](self) -> T:
         return self.__image_name
     
     @property
-    def format(self) -> str:
+    def format[T: str](self) -> T:
         return self.__format
     
-    async def copy(self) -> None:
+    @property
+    def CHUNK_SIZE[T: int](self) -> T:
+        return self.__CHUNKSIZE
+    
+    async def copy[T: None](self) -> T:
         async with aiofiles.open(file=f'{os.getcwd()}/{self.image_name}.{self.format}', mode='rb') as RB:
             async with aiofiles.open(file=f'{os.getcwd()}/{self.image_name}_copy.{self.format}', mode='wb') as WB:
-                CHUNK_SIZE = 4096
-                read_from_chunk: bytes = await RB.read(CHUNK_SIZE)
+                read_from_chunk: bytes = await RB.read(self.CHUNK_SIZE)
                 while (len(read_from_chunk) > 0):
                     await WB.write(read_from_chunk)
-                    read_from_chunk = await RB.read(CHUNK_SIZE)
+                    read_from_chunk = await RB.read(self.CHUNK_SIZE)
                     
                     
 
