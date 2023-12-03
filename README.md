@@ -293,24 +293,24 @@ if (__name__ == '__main__'):
 <br>
 
 
-<h1><b>چجوری بایت های یک عکس رو بصورت استریم ناهماهنگ بخونیم و یه کپی از عکس بگیریم</b></h1>
+<h1><b>چجوری بایت های یک عکس رو بصورت استریم بخونیم و یه کپی از عکس بگیریم</b></h1>
 <div align='left'>
-<h4><b>How to Read Bytes of a Picture using Asynchronous Stream and Get a Copy from it.</b><h4>
-<h4><b>Asynchronous Stream</b><h4>
+<h4><b>How to Read Bytes of a Picture using Stream and Get a Copy from it.</b><h4>
+<h4><b>Python StreamRead & StreamWrite to File.</b><h4>
 <h6>Python 3.12.0<h6>
 
 <h4><h4>
 <br>
     
 ```python
-import os, aiofiles, asyncio
+import os
 
 
 
 
 def main[T: None]() -> T:
     copy1: CopyImageStreamWriter = CopyImageStreamWriter(image_name='wallpaper', format='jpg')
-    asyncio.run(main=copy1.copy())
+    copy1.copy()
 
 
 
@@ -334,13 +334,13 @@ class CopyImageStreamWriter:
     def CHUNK_SIZE[T: int](self) -> T:
         return self.__CHUNKSIZE
     
-    async def copy[T: None](self) -> T:
-        async with aiofiles.open(file=f'{os.getcwd()}/{self.image_name}.{self.format}', mode='rb') as RB:
-            async with aiofiles.open(file=f'{os.getcwd()}/{self.image_name}_copy.{self.format}', mode='wb') as WB:
-                read_from_chunk: bytes = await RB.read(self.CHUNK_SIZE)
+    def copy[T: None](self) -> T:
+        with open(file=f'{os.getcwd()}/{self.image_name}.{self.format}', mode='rb') as RB:
+            with open(file=f'{os.getcwd()}/{self.image_name}_copy.{self.format}', mode='wb') as WB:
+                read_from_chunk: bytes = RB.read(self.CHUNK_SIZE)
                 while (len(read_from_chunk) > 0):
-                    await WB.write(read_from_chunk)
-                    read_from_chunk = await RB.read(self.CHUNK_SIZE)
+                    WB.write(read_from_chunk)
+                    read_from_chunk = RB.read(self.CHUNK_SIZE)
                     
                     
 
