@@ -318,7 +318,7 @@ def main[T: None]() -> T:
 
 
 class CopyImageStreamWriter[TProtectedString: Union[str, None]]:
-    def __init__[TCopyImageStreamWriter: Literal[None]](self, image_name: TProtectedString, format: TProtectedString) -> TCopyImageStreamWriter:
+    def __init__[TCopyImageStreamWriterInitializer: Literal[None]](self, image_name: TProtectedString, format: TProtectedString) -> TCopyImageStreamWriterInitializer:
         self.__image_name = image_name
         self.__format = format
         self.__CHUNKSIZE: int = 4096
