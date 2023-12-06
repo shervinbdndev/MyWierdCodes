@@ -303,7 +303,8 @@ if (__name__ == '__main__'):
 <br>
     
 ```python
-import os
+import os, io
+from typing import Literal, Union
 
 
 
@@ -316,27 +317,27 @@ def main[T: None]() -> T:
 
 
 
-class CopyImageStreamWriter:
-    def __init__[T: str,  N: None](self, image_name: T, format: T) -> N:
+class CopyImageStreamWriter[TProtectedString: Union[str, None]]:
+    def __init__[TCopyImageStreamWriter: Literal[None]](self, image_name: TProtectedString, format: TProtectedString) -> TCopyImageStreamWriter:
         self.__image_name = image_name
         self.__format = format
         self.__CHUNKSIZE: int = 4096
         
     @property
-    def image_name[T: str](self) -> T:
+    def image_name[T: str](self) -> TProtectedString:
         return self.__image_name
     
     @property
-    def format[T: str](self) -> T:
+    def format[T: str](self) -> TProtectedString:
         return self.__format
     
     @property
-    def CHUNK_SIZE[T: int](self) -> T:
+    def CHUNK_SIZE[T: int](self) -> TProtectedString:
         return self.__CHUNKSIZE
     
-    def copy[T: None](self) -> T:
-        with open(file=f'{os.getcwd()}/{self.image_name}.{self.format}', mode='rb') as RB:
-            with open(file=f'{os.getcwd()}/{self.image_name}_copy.{self.format}', mode='wb') as WB:
+    def copy(self) -> None:
+        with open(file=f'{os.getcwd()}/{self.image_name}.{self.format}', mode='rb', buffering=io.DEFAULT_BUFFER_SIZE) as RB:
+            with open(file=f'{os.getcwd()}/{self.image_name}_copy.{self.format}', mode='wb', buffering=io.DEFAULT_BUFFER_SIZE) as WB:
                 read_from_chunk: bytes = RB.read(self.CHUNK_SIZE)
                 while (len(read_from_chunk) > 0):
                     WB.write(read_from_chunk)
